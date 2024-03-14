@@ -1,18 +1,19 @@
-// Importing required modules
-const http = require('http');
+// app.js
 
-// Creating a server
-const server = http.createServer((req, res) => {
-  // Setting response header
-  res.writeHead(200, {'Content-Type': 'text/html'});
-  
-  // Sending response
-  res.write('<h1>Hello, World!</h1>');
-  res.end();
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.get('/', (req, res) => {
+  res.send('Hello, AWS Elastic Beanstalk!');
 });
 
-// Setting server to listen on port 3000
-server.listen(3000, () => {
-  console.log('Server is running on http://localhost:3000');
-});
+// Export the app object
+module.exports = app;
 
+// Start the server only if the script is run directly
+if (require.main === module) {
+  app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+  });
+}
