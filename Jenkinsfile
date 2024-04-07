@@ -16,7 +16,7 @@ pipeline {
        stage('Checkout') {
             steps {
                 // Change the github repo into your
-                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Vennilavan12/ebs.git']])
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/srinivasandhatchinamoorthy/nodejs-pro3.git']])
             }
         }
 
